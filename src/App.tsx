@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Header } from './component/Header';
+import { Daytab } from './component/Daytab';
+import { Footer } from './component/Footer';
+import { Content } from './component/Content';
+import { Animation } from './component/Animation';
+import { Main } from './component/Main';
 
 function App() {
+
+  var xlenght = window.outerWidth;
+  var size = window.location;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      {
+        xlenght > 500 ? (size.assign("https://www.google.com/")) : (
+          <Routes>
+            <Route path='/' element={<Animation />} />
+            <Route path='main' element={<Main />} />
+          </Routes>)
+      }
+
+
+      {/*       <Header />
+      <Content/>
+      <Footer/> */}
+    </>
   );
 }
 
